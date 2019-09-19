@@ -42,4 +42,18 @@ public class PerfectCharacterUtilTest {
 
       Assert.assertEquals(CharacterUtil.CHAR_USELESS, CharacterUtil.identifyCharType('|'));
   }
+
+    // Test written by hand.
+    @Test
+    public void regularize() {
+        Assert.assertEquals('a', CharacterUtil.regularize('a', false));
+        Assert.assertEquals('P', CharacterUtil.regularize('P', false));
+        Assert.assertEquals('b', CharacterUtil.regularize('B', true));
+
+        Assert.assertEquals(' ', CharacterUtil.regularize('\u3000', true));
+        Assert.assertEquals('\uff00', CharacterUtil.regularize('\uff00', true));
+        Assert.assertEquals('!', CharacterUtil.regularize('\uff01', true));
+        Assert.assertEquals('~', CharacterUtil.regularize('\uff5e', true));
+        Assert.assertEquals('\uff5f', CharacterUtil.regularize('\uff5f', true));
+    }
 }
