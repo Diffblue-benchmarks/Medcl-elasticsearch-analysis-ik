@@ -127,4 +127,65 @@ public class PerfectLexemeTest {
     // Act and Assert result
     Assert.assertFalse(lexeme.equals(i));
   }
+
+  // Test written by Diffblue Cover.
+  @Test
+  public void compareToIdentical() {
+
+    // Arrange
+    final Lexeme lexeme = new Lexeme(0, 0, 0, 0);
+    final Lexeme other = new Lexeme(0, 0, 0, 0);
+
+    // Act and Assert result
+    Assert.assertEquals(0, lexeme.compareTo(other));
+  }
+
+  // Test written by Diffblue Cover.
+  @Test
+  public void compareToGreaterBegin() {
+
+    // Arrange
+    final Lexeme lexeme = new Lexeme(0, -2, 0, 0);
+    final Lexeme other = new Lexeme(0, -1, 0, 0);
+
+    // Act and Assert result
+    Assert.assertEquals(-1, lexeme.compareTo(other));
+  }
+
+
+  // Test written by Diffblue Cover.
+  @Test
+  public void compareToSmallerLength() {
+
+    // Arrange
+    final Lexeme lexeme = new Lexeme(0, -2_145_894_400, 1024, 0);
+    final Lexeme other = new Lexeme(0, -2_145_894_400, 0, 0);
+
+    // Act and Assert result
+    Assert.assertEquals(-1, lexeme.compareTo(other));
+  }
+
+  // Test written by Diffblue Cover.
+  @Test
+  public void compareToGreaterLength() {
+
+    // Arrange
+    final Lexeme lexeme = new Lexeme(0, -2_145_894_400, 0, 0);
+    final Lexeme other = new Lexeme(0, -2_145_894_400, 1024, 0);
+
+    // Act and Assert result
+    Assert.assertEquals(1, lexeme.compareTo(other));
+  }
+
+  // Test written by Diffblue Cover.
+  @Test
+  public void compareToSmallerBegin() {
+
+    // Arrange
+    final Lexeme lexeme = new Lexeme(0, 0, 0, 0);
+    final Lexeme other = new Lexeme(0, -2_147_483_648, 0, 0);
+
+    // Act and Assert result
+    Assert.assertEquals(1, lexeme.compareTo(other));
+  }
 }
