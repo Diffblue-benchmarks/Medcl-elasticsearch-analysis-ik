@@ -37,6 +37,8 @@ import java.util.LinkedList;
 @RunWith(PowerMockRunner.class)
 public class AnalyzeContextTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
   // Test written by Diffblue Cover.
   @Test
   public void fillBufferInputNotNullOutputIndexOutOfBoundsException6()

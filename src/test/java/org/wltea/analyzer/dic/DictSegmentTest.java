@@ -30,6 +30,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @RunWith(PowerMockRunner.class)
 public class DictSegmentTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
+
   // Test written by Diffblue Cover.
   @Test
   public void matchInput2ZeroPositiveNullOutputNotNull2() throws InvocationTargetException {

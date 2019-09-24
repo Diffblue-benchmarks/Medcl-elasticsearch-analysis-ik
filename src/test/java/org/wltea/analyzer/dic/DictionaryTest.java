@@ -46,6 +46,9 @@ import java.util.concurrent.ScheduledExecutorService;
 @RunWith(PowerMockRunner.class)
 public class DictionaryTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
+
   // Test written by Diffblue Cover.
   @PrepareForTest({LogManager.class, Dictionary.class, Executors.class})
   @Test

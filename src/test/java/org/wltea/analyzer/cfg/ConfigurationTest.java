@@ -30,6 +30,8 @@ import java.security.ProtectionDomain;
 @RunWith(PowerMockRunner.class)
 public class ConfigurationTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
   // Test written by Diffblue Cover.
   @PrepareForTest({URL.class, Class.class, Configuration.class, CodeSource.class,
                    ProtectionDomain.class, File.class})

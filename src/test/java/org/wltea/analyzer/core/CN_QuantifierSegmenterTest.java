@@ -21,6 +21,9 @@ import java.util.LinkedList;
 
 public class CN_QuantifierSegmenterTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
+
   // Test written by Diffblue Cover.
 
   @Test

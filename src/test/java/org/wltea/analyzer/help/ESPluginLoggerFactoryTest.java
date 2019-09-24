@@ -29,6 +29,9 @@ import java.lang.reflect.Method;
 @RunWith(PowerMockRunner.class)
 public class ESPluginLoggerFactoryTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
+
   // Test written by Diffblue Cover.
   @PrepareForTest(LogManager.class)
   @Test

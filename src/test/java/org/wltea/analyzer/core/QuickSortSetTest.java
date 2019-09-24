@@ -16,6 +16,8 @@ import java.lang.reflect.Method;
 
 public class QuickSortSetTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
   // Test written by Diffblue Cover.
   @Test
   public void addLexemeInputNullOutputIllegalArgumentException() throws InvocationTargetException {

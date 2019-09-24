@@ -30,6 +30,8 @@ import java.util.HashSet;
 @RunWith(PowerMockRunner.class)
 public class LetterSegmenterTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
   // Test written by Diffblue Cover.
   @Test
   public void analyzeInputNotNullOutputIllegalArgumentException27()
