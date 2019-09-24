@@ -27,4 +27,58 @@ public class PerfectDictSegmentTest {
     Assert.assertTrue(dictSegment.match(new char[]{'b', 'a', 'z'}).isMatch());
     Assert.assertFalse(dictSegment.match(new char[]{'b', 'a', 'c'}).isMatch());
   }
+
+  @Test
+  public void matchNonMatching() {
+
+    // Arrange
+    final DictSegment dictSegment = new DictSegment('z');
+    dictSegment.fillSegment(new char[]{'a'});
+    final char[] charArray = {'a', 'b'};
+
+    // Act
+    final Hit actual = dictSegment.match(charArray, 0, 2);
+
+    // Assert result
+    Assert.assertNotNull(actual);
+    Assert.assertTrue(actual.isUnmatch());
+    Assert.assertEquals(0, actual.getBegin());
+    Assert.assertEquals(1, actual.getEnd());
+  }
+
+  @Test
+  public void matchMatching() {
+
+    // Arrange
+    final DictSegment dictSegment = new DictSegment('z');
+    dictSegment.fillSegment(new char[]{'f', 'o'});
+    final char[] charArray = "abcdefoo".toCharArray();
+
+    // Act
+    final Hit actual = dictSegment.match(charArray, 5, 2);
+
+    // Assert result
+    Assert.assertNotNull(actual);
+    Assert.assertTrue(actual.isMatch());
+    Assert.assertEquals(5, actual.getBegin());
+    Assert.assertEquals(6, actual.getEnd());
+  }
+
+  @Test
+  public void matchPrefix() {
+
+    // Arrange
+    final DictSegment dictSegment = new DictSegment('z');
+    dictSegment.fillSegment(new char[]{'f', 'o', 'o'});
+    final char[] charArray = new char[]{'f', 'o'};
+
+    // Act
+    final Hit actual = dictSegment.match(charArray);
+
+    // Assert result
+    Assert.assertNotNull(actual);
+    Assert.assertTrue(actual.isPrefix());
+    Assert.assertEquals(0, actual.getBegin());
+    Assert.assertEquals(1, actual.getEnd());
+  }
 }
