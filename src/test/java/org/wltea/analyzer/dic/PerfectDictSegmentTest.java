@@ -81,4 +81,39 @@ public class PerfectDictSegmentTest {
     Assert.assertEquals(0, actual.getBegin());
     Assert.assertEquals(1, actual.getEnd());
   }
+
+  @Test
+  public void matchBigDictMatching() {
+
+    // Arrange
+    final DictSegment dictSegment = new DictSegment('z');
+    dictSegment.fillSegment(new char[]{'b', 'a', 'b'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'c'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'd'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'f'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'g'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'h'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'j'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'k'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'l'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'm'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'n'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'p'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'r'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 's'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 't'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'v'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'y'});
+    dictSegment.fillSegment(new char[]{'b', 'a', 'z'});
+    final char[] charArray = "bam".toCharArray();
+
+    // Act
+    final Hit actual = dictSegment.match(charArray);
+
+    // Assert result
+    Assert.assertNotNull(actual);
+    Assert.assertTrue(actual.isMatch());
+    Assert.assertEquals(0, actual.getBegin());
+    Assert.assertEquals(2, actual.getEnd());
+  }
 }
