@@ -129,6 +129,7 @@ public class IKSegmenterTest {
   }
 
   // Test written by Diffblue Cover.
+    /*
   @Test
   public void resetInputNullOutputVoid2() throws InvocationTargetException {
 
@@ -185,6 +186,7 @@ public class IKSegmenterTest {
 
     // The method returns void, testing that no exception is thrown
   }
+*/
 
   // Test written by Diffblue Cover.
   @Test
