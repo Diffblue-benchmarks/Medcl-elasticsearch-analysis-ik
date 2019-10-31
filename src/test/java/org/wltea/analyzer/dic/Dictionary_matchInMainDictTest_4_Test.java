@@ -1,0 +1,27 @@
+package org.wltea.analyzer.dic;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.rules.Timeout;
+import org.powermock.reflect.Whitebox;
+import org.wltea.analyzer.dic.Dictionary;
+import org.wltea.analyzer.dic.Hit;
+
+public class Dictionary_matchInMainDictTest_4_Test {
+//failed_run   @Test
+//  public void matchInMainDictTest() throws Exception {
+//    // Arrange
+//    Dictionary dictionary = Whitebox.newInstance(Dictionary.class);
+//    char[] charArray = new char[]{'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'};
+//
+//    // Act
+//    Hit actual = dictionary.matchInMainDict(charArray);
+//
+//    // Assert
+//    Assert.assertEquals(null, actual);
+//    Assert.assertEquals(8, charArray.length);
+//    Assert.assertArrayEquals(new char[]{'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c'}, charArray);
+//  }
+  @org.junit.Rule
+  public Timeout timeout = new Timeout(10000);
+}
